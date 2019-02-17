@@ -1,7 +1,7 @@
 # #D (hashD)
 A fully decentralized broadcast system for the based on gossip and proof of work
 
-
+Rust implmentation can be found here: https://github.com/cryptoquick/hashd
 
 
 
@@ -26,6 +26,14 @@ A fully decentralized broadcast system for the based on gossip and proof of work
 - hashd explore - p2p search
 
 
+### Message Types
+| message | Contents | Size | Compute| Forward Rules | description|
+|---------|----------|------|--------|---------------|------------|
+|nonceRelay  | BlkSig + nonce | 80b | 1 hash| does the hash verify & meet threshold| Relay additional PoW|
+|headerRelay | nonceRelay + header| 80b+100b| 1 signature| does signature verify| Relay new blockheaders|
+|bCastRelay  | headerRelay + hash[A:B] + type + value| 180b+64b+128b| 4 hashes| do all the hashes verify | Add new k,v to database|
+|authRelay   | bCastRelay + Auth Script + hashes| 372b+ script size| more hashes and script validation| do all the hashes verify & script is well formed| set new consensus rules for chain|
+|dataRelay   | bCastRelay + data + hashes |372b+merkle tree & leaves| n hashes for n data verfification |verify hashes|  Store data of another node's block|
 
 ```                                                                            Bytes        Name
                   PoW Hash                      | 1 comparison             | 32 |    |    | Broadcast Hash
@@ -43,7 +51,7 @@ A fully decentralized broadcast system for the based on gossip and proof of work
     /       \                                   |                          |    |    |    |
  hashC     hashD                                | 2 hash verifications(C,D)| 32 | 32 |    |
    |         |                                  |                          |    |    |    |
- type      value                                | 2 data fields            | 128| 128|    |
+ type      value                                | 2 data fields            | 64 | 64 |    |
       (#D can be extended for recovery scripting)
 ```
 
