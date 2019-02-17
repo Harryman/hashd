@@ -38,7 +38,7 @@ Rust implmentation can be found here: https://github.com/cryptoquick/hashd
 ```                                                                            Bytes        Name
                   PoW Hash                      | 1 comparison             | 32 |    |    | Broadcast Hash
                      |                          |                          | sig|nonc|    |
-         Block Signature || nounce              | 1 hash verification      | 32 | 16 |    |
+         Block Signature || nonce              | 1 hash verification      | 32 | 16 |    |
                |                                |                          |root|Psig|Pkey|
 (Op(4b)||Merkle Root||PrevBlkSig)sign+(pub-key) | 1 signature verification | 32 | 32 | 64 | Blockheader + 4bytes for bit tag field
             /     \                             | 1 hash verification      |    |    |    |
