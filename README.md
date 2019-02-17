@@ -15,8 +15,8 @@ Rust implmentation can be found here: https://github.com/cryptoquick/hashd
 - hashd init
   - Create new block with prevBlk = 0
   - Create two new keys
-    - device key - hot key
-    - identity key - cold key output as a mnemonic
+    - hot key
+    - cold key output as a mnemonic
 - hashd addWork blkSig - adds proof of work to a block signature
 - hashd hashBench - benchmark and show lowest hash after 1,10,100 seconds
 - hashd set -v 10 "Message" "tag1,tag2" image.jpg
