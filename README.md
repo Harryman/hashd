@@ -3,6 +3,8 @@ A fully decentralized broadcast system for the based on gossip and proof of work
 
 Rust implmentation can be found here: https://github.com/cryptoquick/hashd
 
+Original Paper https://hashd.in/hashd-in-draft0/
+
 
 
 ## PoC - ethDenver
@@ -52,7 +54,6 @@ Rust implmentation can be found here: https://github.com/cryptoquick/hashd
  hashC     hashD                                | 2 hash verifications(C,D)| 32 | 32 |    |
    |         |                                  |                          |    |    |    |
  type      value                                | 2 data fields            | 64 | 64 |    |
-      (#D can be extended for recovery scripting)
 ```
 
 | OP Value | Type | Value | Description|
