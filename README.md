@@ -9,19 +9,19 @@ Original Paper https://hashd.in/hashd-in-draft0/
 
 ## PoC - ethDenver
 
-* PoW ashing Alorithm SHA256
-* Merkle Tree hash SHA256
-* Signatures ECDSA secp256k1
+* PoW hashing Alorithm SHA256 - moving to coocko cycle
+* Merkle Tree hash SHA256 - moving to blake2b or keccak
+* Signatures ECDSA secp256k1 - if there is a working BLS implementation we should move to that
 
 ### CLI API
-- hashd init
+- hashd init - implemented
   - Create new block with prevBlk = 0
   - Create two new keys
     - hot key
     - cold key output as a mnemonic
-- hashd addWork blkSig - adds proof of work to a block signature
-- hashd hashBench - benchmark and show lowest hash after 1,10,100 seconds
-- hashd set -v 10 "Message" "tag1,tag2" image.jpg
+- hashd addWork blkSig - adds proof of work to a block signature - implemented
+- hashd hashBench - benchmark and show lowest hash after 1,10,100 seconds - implemented
+- hashd set -v 10 "Message" "tag1,tag2" image.jpg - partially implemented
 - hashd get -v 10 type="value"
 - hashd config threshold (forward|store-headers|store-broadcast|store-data)
 - hashd verify KEY - block info
@@ -40,7 +40,7 @@ Original Paper https://hashd.in/hashd-in-draft0/
 ```                                                                            Bytes        Name
                   PoW Hash                      | 1 comparison             | 32 |    |    | Broadcast Hash
                      |                          |                          | sig|nonc|    |
-         Block Signature || nonce              | 1 hash verification      | 32 | 16 |    |
+        Block Signature || nonce                | 1 hash verification      | 32 | 16 |    |
                |                                |                          |root|Psig|Pkey|
 (Op(4b)||Merkle Root||PrevBlkSig)sign+(pub-key) | 1 signature verification | 32 | 32 | 64 | Blockheader + 4bytes for bit tag field
             /     \                             | 1 hash verification      |    |    |    |
@@ -64,31 +64,3 @@ Original Paper https://hashd.in/hashd-in-draft0/
 | 3        |Service Endpoint| JSON object | containing protocol and address tuples of supported endpoints |  
 | 4        |Schema| JSON {opVal:Ttype}| the last schema for a chain supercedes eariler ones on the same opval |
 | 5        |Tweet| [hashtag1,hashtag2...]| Simple tweet data type, message data is in the data side of the merkle tree|
-
-
-
-#### Storing one blockheader broadcast without matching to existing chain
-* 1 comparison
-* 1 signature verification
-* 5 hash verifications
-* 592 bytes of bandwidth/storage
-Further hash verification, storage, and bandwidth requirements are needed for expanded messages below #D
-
-#### Verify chain, accumulate weight for n blocks, no key rotations
-* (n)additions
-* (n)hash verifications
-* (n)signatures verifications
-* (n*176)bytes of bandwidth/storage
-
-#### Verify chain only, no bcast hash
-* (n)signature verifications
-* (n*160)bytes of bandwidth/storage
-
-#### Add PoW to broadcast
-* 1 addition
-* 1 hash verification
-* 80 Bytes
-
-#### Optimistic(assuming, service endpoint has been broadcast) K,V request response
-* request size: command + key + value(< 512 bytes)
-* response size: (Key,Value Weight sum + service endpoint + blockheader(se), blockheader(K,V)) * n places in PoW)( 1n < 1 kb)
