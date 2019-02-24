@@ -1,5 +1,5 @@
 # #D (hashD)
-A fully decentralized broadcast system for the based on gossip and proof of work
+A fully decentralized authenticated broadcast/discovery system based on gossip and proof of work
 
 Original Paper https://hashd.in/hashd-in-draft0/
 
@@ -8,7 +8,7 @@ Original Paper https://hashd.in/hashd-in-draft0/
 
 - [ ] PoW hashing Alorithm SHA256 - moving to coocko cycle
 - [ ] Merkle Tree hash SHA256 - moving to blake2b or keccak
-- [ ] Signatures ECDSA secp256k1 - if there is a working BLS implementation we should move to that
+- [ ] Signatures ECDSA secp256k1 
 
 
 ### CLI API
