@@ -26,7 +26,7 @@ setup(
     keywords="database",
     # author="Joe", # TODO
     # author_email="joe@example.org", # TODO
-    # url="", # TODO
+    url="https://hashd.in/",
     # license="MIT", # TODO
     packages=find_packages("hashd"),
     package_dir={"": "hashd"},

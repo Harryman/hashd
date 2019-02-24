@@ -12,6 +12,9 @@ Original Paper https://hashd.in/hashd-in-draft0/
 
 
 ### CLI API
+
+Prefix commands with `python`, i.e., `python hashd init`
+
 - [ ] hashd init - implemented
   - Create new block with prevBlk = 0
   - Create two new keys
