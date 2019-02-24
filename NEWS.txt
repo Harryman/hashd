@@ -1,0 +1,9 @@
+News
+====
+
+0.1-dev
+---
+
+*Release date: 15-Mar-2019*
+
+* Placeholder for initial release
