@@ -1,31 +1,29 @@
 # #D (hashD)
 A fully decentralized broadcast system for the based on gossip and proof of work
 
-Rust implmentation can be found here: https://github.com/cryptoquick/hashd
-
 Original Paper https://hashd.in/hashd-in-draft0/
-
 
 
 ## PoC - ethDenver
 
-* PoW hashing Alorithm SHA256 - moving to coocko cycle
-* Merkle Tree hash SHA256 - moving to blake2b or keccak
-* Signatures ECDSA secp256k1 - if there is a working BLS implementation we should move to that
+- [ ] PoW hashing Alorithm SHA256 - moving to coocko cycle
+- [ ] Merkle Tree hash SHA256 - moving to blake2b or keccak
+- [ ] Signatures ECDSA secp256k1 - if there is a working BLS implementation we should move to that
+
 
 ### CLI API
-- hashd init - implemented
+- [ ] hashd init - implemented
   - Create new block with prevBlk = 0
   - Create two new keys
     - hot key
     - cold key output as a mnemonic
-- hashd addWork blkSig - adds proof of work to a block signature - implemented
-- hashd hashBench - benchmark and show lowest hash after 1,10,100 seconds - implemented
-- hashd set -v 10 "Message" "tag1,tag2" image.jpg - partially implemented
-- hashd get -v 10 type="value"
-- hashd config threshold (forward|store-headers|store-broadcast|store-data)
-- hashd verify KEY - block info
-- hashd explore - p2p search
+- [ ] hashd addWork blkSig - adds proof of work to a block signature - implemented
+- [ ] hashd hashBench - benchmark and show lowest hash after 1,10,100 seconds - implemented
+- [ ] hashd set -v 10 "Message" "tag1,tag2" image.jpg - partially implemented
+- [ ] hashd get -v 10 type="value"
+- [ ] hashd config threshold (forward|store-headers|store-broadcast|store-data)
+- [ ] hashd verify KEY - block info
+- [ ] hashd explore - p2p search
 
 
 ### Message Types
