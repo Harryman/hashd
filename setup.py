@@ -18,12 +18,12 @@ install_requires = [
 setup(
     name="hashd",
     version=version,
-    description="A fully decentralized broadcast system for the based on gossip and proof of work",
+    description="A fully decentralized authenticated broadcast/discovery system based on gossip and proof of work",
     long_description=README + "\n\n" + NEWS,
     classifiers=[
         # TODO Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     ],
-    keywords="database",
+    keywords="database, identity, discovery",
     # author="Joe", # TODO
     # author_email="joe@example.org", # TODO
     url="https://hashd.in/",
