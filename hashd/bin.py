@@ -4,7 +4,7 @@ import argparse
 from commands import init, add_work, hash_bench
 
 
-def parse(args_str: List[str]) -> None:
+def parse(args_str: List[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(prog="hashd")
     parser.set_defaults(func=lambda a: parser.print_help())
 
@@ -29,3 +29,4 @@ def parse(args_str: List[str]) -> None:
 
     args = parser.parse_args(args_str)
     args.func(args)
+    return args
