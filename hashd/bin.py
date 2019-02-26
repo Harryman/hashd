@@ -20,6 +20,7 @@ def parse(args_str: List[str]) -> argparse.Namespace:
         "add-work", help="Adds PoW to a block signature"
     )
     add_work_subparser.add_argument("signature")
+    add_work_subparser.add_argument("duration")
     add_work_subparser.set_defaults(func=add_work.add_work)
 
     hash_bench_subparser = subparsers.add_parser(

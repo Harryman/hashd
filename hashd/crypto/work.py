@@ -3,7 +3,7 @@ import hashlib
 import binascii
 
 
-def addWork(blockSig, duration):
+def add_work(signature, duration):
     nonce = 0
     low = bytearray(32)
 
@@ -13,17 +13,16 @@ def addWork(blockSig, duration):
     start = time.time()
     now = start
 
-    while (start + duration) > now:
+    while (start + float(duration)) > now:
         now = time.time()
         h = hashlib.sha256()
-        h.update(blockSig)
+        h.update(signature.encode("utf-8"))
         h.update(nonce.to_bytes(16, "little", signed=False))
-        crnt = h.digest()
-        if crnt < low:
-            low = crnt
-            lowNonce = nonce
+        current = h.digest()
+        if current < low:
+            low = current
         nonce = nonce + 1
 
-    lowout = binascii.hexlify(low)
+    result = binascii.hexlify(low)
 
-    return lowNonce, lowout
+    return result, nonce
