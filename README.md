@@ -13,7 +13,8 @@ Original Paper https://hashd.in/hashd-in-draft0/
 
 ### CLI API
 
-Prefix commands with `python`, i.e., `python hashd init`
+Install with pip using `pip install --user .`
+Prefix commands with `python` using the module flag, i.e., `python -m hashd init`
 
 - [ ] hashd init - implemented
   - Create new block with prevBlk = 0

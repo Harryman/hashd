@@ -1,5 +1,5 @@
 import sys
 
-from hashd import parse
+from hashd.bin import parse
 
 parse(sys.argv[1:])
